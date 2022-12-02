@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean name="userDAO" class="com.husky.webmvc.context.dao.UserDAO"/>
+    <bean name="commentDAO" class="com.husky.webmvc.context.dao.CommentDAO"/>
+    <bean name="userService" class="com.husky.webmvc.context.service.UserService">
+        <property ref="userDAO" name="userDAO"/>
+    </bean>
+    <bean name="commentService" class="com.husky.webmvc.context.service.CommentService">
+        <property ref="commentDAO" name="commentDAO"/>
+        <property ref="userService" name="userService"/>
+    </bean>
+    <bean name="userController" class="com.husky.webmvc.context.controller.UserController">
+        <property ref="userService" name="userService"/>
+    </bean>
+    <bean name="commentController" class="com.husky.webmvc.context.controller.CommentController">
+        <property ref="commentService" name="commentService"/>
+    </bean>
+</beans>

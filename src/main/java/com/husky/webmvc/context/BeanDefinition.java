@@ -15,7 +15,7 @@ public class BeanDefinition {
     /**
      * bean的类名称，用于确定bean实例的类型
      */
-    private final String className;
+    private String className;
 
     /**
      * bean实例包含的属性，描述当前bean的依赖
@@ -27,12 +27,20 @@ public class BeanDefinition {
         this.className = className;
     }
 
+    public BeanDefinition(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
 
     public String getClassName() {
         return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public Map<String, BeanDefinition> getPropertyDefinition() {
